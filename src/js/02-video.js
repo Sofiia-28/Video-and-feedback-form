@@ -4,14 +4,14 @@ import throttle from 'lodash.throttle';
 const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 
-const CURRENT_TIME_KEY = "videoplayer-current-time";
-player.getCurrentTime().then(function(seconds){
-    localStorage.setItem(CURRENT_TIME_KEY, seconds)
-})
+player.setVolume(0);
 
-player.on('timeupdate', throttle(getCurrentTime, 1000));
+function getTime(data){
+        localStorage.setItem("videoplayer-current-time", data.seconds)
+    }
 
-// const currentTime = Number(localStorage.getItem(CURRENT_TIME_KEY)) || 0;
-// player.setCurrentTime(currentTime)
+player.on('timeupdate', throttle(getTime, 1000));
 
-// console.log(timeKey.second);
+const currentTime = Number(localStorage.getItem("videoplayer-current-time")) || 0;
+player.setCurrentTime(currentTime)
+
