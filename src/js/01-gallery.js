@@ -1,11 +1,11 @@
 // Add imports above this line
 import { galleryItems } from './gallery-items';
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 console.log(galleryItems);
 
-const ulEl = document.querySelector(".gallery");
+const ulEl = document.querySelector('.gallery');
 
 function createGallery() {
   const markupLiEl = galleryItems
@@ -17,15 +17,15 @@ function createGallery() {
       </a>
    </li>`
     )
-    .join("");
+    .join('');
 
-  ulEl.insertAdjacentHTML("beforeend", markupLiEl);
+  ulEl.insertAdjacentHTML('beforeend', markupLiEl);
 }
 createGallery();
 
-let gallery = new SimpleLightbox(".gallery a", {
+let gallery = new SimpleLightbox('.gallery a', {
   captions: true,
-  captionsData: "alt",
-  captionPosition: "bottom",
+  captionsData: 'alt',
+  captionPosition: 'bottom',
   captionDelay: 250,
 });
